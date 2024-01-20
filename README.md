@@ -1,4 +1,4 @@
-# Vorschau: Tower Defense (Kurs 2)
+# Vorschau: Tower Defense (Kurs 1)
 
 https://github.com/mirzapolat/jpcm-2024-kurs2-towerdefense/assets/46076246/5143e011-b629-4f8f-a87f-8eb3632e91db
 
