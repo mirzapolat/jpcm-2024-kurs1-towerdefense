@@ -9,9 +9,31 @@ class Monster {
   int monsterSize; // groesse des monsters
   int checkpoint;
   
-  Monster(int speed, int hp, int damage, PImage image) {
-    this.x = pointsX[0];
+  boolean visible = true;
+  
+  Monster(int speed, int hp, int damage, PImage image, int size) {
+    this.x = pointsX[0];  // Startkoordinaten
     this.y = pointsY[0];
+    this.hp = hp;  // Insgesamte Leben
+    this.image = image;  // Bild vom Monster
+    this.damage = damage;  // Wie viel schaden das Monster macht
+    
+    this.monsterSize = size;
+    this.checkpoint = 0;
+    this.hpmax = hp;
+  }
+  
+  void tick() {
+    if (this.checkpoint == pointsX.length || this.visible == false) {  // Wir sind schon am Ziel
+      this.visible = false;  // Monster unsichtbar machen
+      return;
+    }
+    
+    if (this.x < pointsX[this.checkpoint + 1] - this.speed) 
+      this.x += this.speed;
+    else if (this.x > pointsX[this.checkpoint + 1] + this.speed) 
+      this.x -= this.speed;
+    
     
   }
 }
