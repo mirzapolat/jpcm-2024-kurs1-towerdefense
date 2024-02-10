@@ -2,7 +2,6 @@ int[] pointsX = {-20, 160, 160, 360, 360, 630, 630, 1050};
 int[] pointsY = {360, 360, 170, 170, 425, 425, 310, 310};
 PImage backgroundMap;
 
-// Liste um Monster zu speichern
 ArrayList<Monster> monsters = new ArrayList<Monster>();
 
 void setup() {
@@ -22,7 +21,7 @@ void draw() {
 void drawMonsters() {
   for (Monster a : monsters) {
     if (a != null && a.visible == true) {
-      image(a.image, a.x-(a.size/2), a.y-(a.size/2), a.size, a.size);
+      image(a.image, a.x-(a.monsterSize/2), a.y-(a.monsterSize/2), a.monsterSize, a.monsterSize);
       fill(170);  // Health Bar (Background)
       stroke(80);
       strokeWeight(2);

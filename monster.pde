@@ -21,22 +21,23 @@ class Monster {
     this.monsterSize = size;
     this.checkpoint = 0;
     this.hpmax = hp;
+
   }
 
   // Lässt ein einzelnes Monster eins weiter bewegen.
   void tick() {
-    if (this.checkpoint >= pointsX.length || !this.visible) {    // Wenn nächster Checkpoint nicht mehr gültig ist
+    if (this.checkpoint >= pointsX.length || !this.visible) {
       this.visible = false;
       return;
     }
 
-    if (this.x < pointsX[this.checkpoint] - this.speed) this.x += this.speed;        // Anpassen von X Koordinate
+    if (this.x < pointsX[this.checkpoint] - this.speed) this.x += this.speed;
     else if (this.x > pointsX[this.checkpoint] + this.speed) this.x -= this.speed;
 
-    if (this.y < pointsY[this.checkpoint] - this.speed) this.y += this.speed;        // Anpassen von Y Koordinate
+    if (this.y < pointsY[this.checkpoint] - this.speed) this.y += this.speed;
     else if (this.y > pointsY[this.checkpoint] + this.speed) this.y -= this.speed;
 
-    if (this.x >= pointsX[this.checkpoint] - this.speed &&         // Wenn Checkpoint erreicht
+    if (this.x >= pointsX[this.checkpoint] - this.speed &&
       this.x <= pointsX[this.checkpoint] + this.speed &&
       this.y >= pointsY[this.checkpoint] - this.speed &&
       this.y <= pointsY[this.checkpoint] + this.speed) {
@@ -44,6 +45,14 @@ class Monster {
         this.x = pointsX[this.checkpoint];
         this.y = pointsY[this.checkpoint];
         this.checkpoint ++;
+    }
+  }
+}
+
+void allMonstersTick() {
+  for (int i = 0; i < monsters.length; i++) {
+    if (monsters[i].visible) {
+      monsters[i].tick();
     }
   }
 }
