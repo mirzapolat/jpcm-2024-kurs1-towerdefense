@@ -14,7 +14,9 @@ void setup() {
 }
 
 void draw() {
+  background(backgroundMap);
 
+  drawMonsters();
 }
 
 void drawMonsters() {
@@ -34,12 +36,6 @@ void drawMonsters() {
       fill(10);
       textAlign(CENTER, CENTER);
       text(a.hp, a.x, a.y-50);
-
-      //neu neu neu neu neu neu neu neu neu neu neu neu neu neu neu u neu neu neu neu neu neu neu neu neu neu neu neu neu
-      if (a.x >= 990) {
-        lives--;
-        a.visible = false;
-      }
     }
   }
 }

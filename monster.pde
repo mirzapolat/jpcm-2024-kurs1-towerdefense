@@ -23,6 +23,7 @@ class Monster {
     this.hpmax = hp;
   }
 
+  // Lässt ein einzelnes Monster eins weiter bewegen.
   void tick() {
     if (this.checkpoint >= pointsX.length || !this.visible) {    // Wenn nächster Checkpoint nicht mehr gültig ist
       this.visible = false;
